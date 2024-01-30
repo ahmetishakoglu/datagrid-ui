@@ -1,0 +1,58 @@
+.header {
+  color: var(--main-theme-color);
+  float: left;
+  height: 36px;
+  display: flex;
+  margin-right: 15px;
+  align-items: center;
+}
+
+.spinner-circle {
+  width: 80px;
+  height: 36px;
+  float: left;
+  border: 1px solid var(--main-theme-color);
+  background: white;
+  border-radius: 20px;
+  display: flex;
+  padding: 0 14px;
+  position: relative;
+  align-items: center;
+}
+
+.spinner-value {
+  color: #000;
+  font-size: 10px;
+  font-weight: 400;
+  display: flex;
+}
+
+.spinner-buttons {
+  position: absolute;
+  right: 7px;
+  height: 100%;
+  width: 20px;
+}
+
+.spinner-buttons button {
+  position: absolute;
+  display: flex;
+  height: 12px;
+  transform: translate(-50%, 0);
+  left: 50%;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+  outline: none;
+  line-height: 12px;
+}
+
+.spinner-buttons button.top {
+  top: 4px;
+  align-items: end;
+}
+
+.spinner-buttons button.bottom {
+  bottom: 4px;
+}

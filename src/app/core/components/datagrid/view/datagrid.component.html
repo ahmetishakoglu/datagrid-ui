@@ -1,0 +1,103 @@
+<div class="row h-100">
+  <div class="col-12">
+    <div class="row">
+      <div class="col-6">
+        <dx-text-box class="search-box" [(value)]="searchValue" placeholder="Arama Yap" (onEnterKey)="search()"></dx-text-box>
+        <dx-button class="search-btn" (onClick)="search()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <path d="M8.6 16.2C12.7974 16.2 16.2 12.7974 16.2 8.6C16.2 4.40263 12.7974 1 8.6 1C4.40263 1 1 4.40263 1 8.6C1 12.7974 4.40263 16.2 8.6 16.2Z" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M16.6 17L15 15.4" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </dx-button>
+
+        <dx-button class="filter-btn" (onClick)="clearSearch()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M16 1C16 0.447715 15.5523 0 15 0H1C0.447715 0 0 0.447715 0 1V2.58579C0 2.851 0.105357 3.10536 0.292893 3.29289L4.7071 7.7071C4.89464 7.89464 4.99999 8.14899 4.99999 8.41421V15.3063C4.99999 15.6476 5.33434 15.8886 5.65811 15.7806L10.6581 14.114C10.8623 14.0459 11 13.8548 11 13.6396V8.41422C11 8.149 11.1054 7.89465 11.2929 7.70711L15.7071 3.29289C15.8946 3.10536 16 2.851 16 2.58579V1Z" fill="#744BFC"/>
+          </svg>
+        </dx-button>
+      </div>
+      <div class="col-6 d-flex justify-content-end">
+        <dx-button class="add-btn" (onClick)="add()">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7 1L7 13" stroke="white" stroke-width="2" stroke-linecap="round"/>
+            <path d="M13 7L1 7" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <label>
+            Yeni Hesap Ekle
+          </label>
+        </dx-button>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 position-relative" style="height: calc(100% - 100px);">
+    <div class="datagrid-content">
+      <dx-data-grid
+        [dataSource]="dataList"
+        [showBorders]="true"
+        [width]="'100%'"
+        keyExpr="id">
+
+        <dxo-paging [pageSize]="pageSize" style="display: none;"></dxo-paging>
+        <dxo-pager [showNavigationButtons]="true" displayMode="compact"></dxo-pager>
+
+
+        <dxi-column dataField="url"
+                    caption="Sosyal Medya Linki"
+                    alignment="left"
+                    width="30%"
+                    [allowFiltering]="false"
+                    [allowSorting]="true"
+                    headerCellTemplate="headerTemplateWithSort"
+        ></dxi-column>
+        <dxi-column dataField="name"
+                    caption="Sosyal Medya Adı"
+                    alignment="left"
+                    width="30%"
+                    [allowFiltering]="false"
+                    [allowSorting]="true"
+                    headerCellTemplate="headerTemplateWithSort"
+        ></dxi-column>
+        <dxi-column dataField="description"
+                    caption="Açıklama"
+                    alignment="left"
+                    width="40%"
+                    [allowFiltering]="false"
+                    [allowSorting]="false"
+                    headerCellTemplate="headerTemplateWithoutSort"
+        ></dxi-column>
+        <div *dxTemplate="let data of 'headerTemplateWithoutSort'">
+          <div class="table-header">
+            {{ data.column.caption }}
+          </div>
+        </div>
+        <div *dxTemplate="let data of 'headerTemplateWithSort'">
+          <div class="table-header">
+            {{ data.column.caption }}
+          </div>
+          <div class="sort-icon">
+            @if (data?.column?.sortOrder === 'asc') {
+              <svg xmlns="http://www.w3.org/2000/svg" width="10" height="20" viewBox="0 0 10 20" fill="none">
+                <path d="M4.98602 5L4.98602 19" stroke="var(--main-theme-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M4.78241 0.285875L0.900427 5.73587C0.523197 6.26547 0.901813 7 1.55203 7L8.42004 7C9.07025 7 9.44887 6.26547 9.07164 5.73587L5.18966 0.285875C5.08998 0.145929 4.88209 0.145929 4.78241 0.285875Z" fill="var(--main-theme-color)"/>
+              </svg>
+            } @else if (data?.column?.sortOrder === 'desc') {
+              <svg xmlns="http://www.w3.org/2000/svg" width="10" height="20" viewBox="0 0 10 20" fill="none">
+                <path d="M4.98604 15L4.98604 1" stroke="var(--main-theme-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M5.18965 19.7141L9.07163 14.2641C9.44886 13.7345 9.07025 13 8.42003 13L1.55202 13C0.901807 13 0.523193 13.7345 0.900422 14.2641L4.7824 19.7141C4.88208 19.8541 5.08997 19.8541 5.18965 19.7141Z" fill="var(--main-theme-color)"/>
+              </svg>
+            }
+            @else {
+              <svg xmlns="http://www.w3.org/2000/svg" width="10" height="20" viewBox="0 0 10 20" fill="none">
+                <path d="M4.98602 5L4.98602 19" stroke="#C0B8DC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M4.78241 0.285875L0.900427 5.73587C0.523197 6.26547 0.901813 7 1.55203 7L8.42004 7C9.07025 7 9.44887 6.26547 9.07164 5.73587L5.18966 0.285875C5.08998 0.145929 4.88209 0.145929 4.78241 0.285875Z" fill="#C0B8DC"/>
+              </svg>
+            }
+          </div>
+        </div>
+      </dx-data-grid>
+      <div class="table-spinner">
+        <app-number-spinner [spinnerValue]="pageSize" (spinner)="pageSize = $event" ></app-number-spinner>
+      </div>
+    </div>
+  </div>
+</div>
