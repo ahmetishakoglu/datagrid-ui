@@ -2,6 +2,7 @@ import {Component, signal} from '@angular/core';
 import {DevExtremeModule} from "devextreme-angular";
 import {NumberSpinnerComponent} from "../../../../features/number-spinner/number-spinner.component";
 import {NgTemplateOutlet} from "@angular/common";
+import {SocialMediaModel} from "../../../models/social-media.model";
 
 @Component({
   selector: 'app-datagrid',
@@ -11,7 +12,7 @@ import {NgTemplateOutlet} from "@angular/common";
   styleUrl: './datagrid.component.css'
 })
 export class DatagridComponent {
-  dataList: any[];
+  dataList: SocialMediaModel[] = [];
   pageSize: number;
   searchValue: string = '';
 

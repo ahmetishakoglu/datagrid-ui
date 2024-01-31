@@ -2,26 +2,31 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.3.
 
-## Development server
+## Get started
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Clone the repo
 
-## Build
+```shell
+git clone https://github.com/ahmetishakoglu/datagrid-ui.git
+cd datagird-ui
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Install npm packages
 
-## Running unit tests
+Install the `npm` packages described in the `package.json` and verify that it works:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```shell
+npm install
+```
+### Run project
 
-## Running end-to-end tests
+The `npm start` command builds (compiles TypeScript and copies assets) the application.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```shell
+npm start
+```
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Shut it down manually with `Ctrl-C`.

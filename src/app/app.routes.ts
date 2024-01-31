@@ -6,7 +6,7 @@ import {PageNotFoundComponent} from "./core/components/page-not-found/page-not-f
 export const routes: Routes = [
   {
     path: '',
-    component: HomeComponent
+    component: DatagridComponent
   },
   {
     path: 'datagrid',

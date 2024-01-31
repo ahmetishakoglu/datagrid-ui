@@ -1,3 +1,52 @@
 .logo img {
   width: 100%;
 }
+
+.menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  gap: 70px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #000;
+  transition: all ease-in-out .2s;
+}
+
+.menu a:hover {
+  color: var(--main-theme-color);
+}
+
+.social-medias {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 12px;
+  padding-right: 20px;
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1366px) {
+  .menu {
+    gap: 40px;
+  }
+}
+
+/* tablet yatay */
+@media only screen and (min-width: 1000px) and (max-width: 1024px) {
+  .menu {
+    gap: 40px;
+  }
+}
+
+/* tablet dikey */
+@media only screen and (min-width: 760px) and (max-width: 999px) {
+  .menu {
+    gap: 40px;
+  }
+}
